@@ -6,7 +6,6 @@
 import numpy as N
 import scipy as S
 import pylab as P
-import pyfits as F
 from scipy.io.idl import readsav
 import pyfits as F
 import emcee
