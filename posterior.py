@@ -7,6 +7,7 @@ import numpy as N
 import scipy as S
 import pylab as P
 from scipy.io.idl import readsav
+import astropy.io.fits as F
 import emcee
 import corner
 import time
@@ -399,7 +400,7 @@ def sample(ndim, nwalkers, nsteps, burnin, start, ur, sigma_ur, nuvu, sigma_nuvu
     p0 = [start + 1e-4*N.random.randn(ndim) for i in range(nwalkers)]
     sampler = emcee.EnsembleSampler(nwalkers, ndim, lnprob, threads=2, args=(ur, sigma_ur, nuvu, sigma_nuvu, age))
     """ Burn in run here..."""
-    pos, prob, state = sampler.run_mcmc(p0, burnin)
+    pos = sampler.run_mcmc(p0, burnin)
     lnp = sampler.flatlnprobability
     N.save('lnprob_burnin_'+str(int(id))+'_'+str(ra)+'_'+str(dec)+'_'+str(time.strftime('%H_%M_%d_%m_%y'))+'.npy', lnp)
     samples = sampler.chain[:,:,:].reshape((-1,ndim))
