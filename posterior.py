@@ -4,10 +4,8 @@
     """
 
 import numpy as N
-import scipy as S
 import pylab as P
 from scipy.io.idl import readsav
-import astropy.io.fits as F
 import emcee
 import corner
 import time
