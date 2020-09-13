@@ -7,7 +7,6 @@ import numpy as N
 import scipy as S
 import pylab as P
 from scipy.io.idl import readsav
-import pyfits as F
 import emcee
 import corner
 import time
@@ -20,7 +19,7 @@ from scipy.interpolate import interp2d
 from itertools import product
 import sys
 
-cosmo = FlatLambdaCDM(H0 = 70.0, Om0 = 0.3)
+cosmo = FlatLambdaCDM(H0 = 71.0, Om0 = 0.26)
 
 font = {'family':'serif', 'size':16}
 P.rc('font', **font)
